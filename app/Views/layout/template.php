@@ -78,7 +78,7 @@
             $('#example').DataTable({
                 "oLanguage": {
                     "sSearch": "",
-                    "sSearchPlaceholder": "cari",
+                    "sSearchPlaceholder": "search",
                     "sLengthMenu": "Tampil _MENU_ data",
                     "sInfo": "Menampilkan data _START_ sampai _END_ dari _TOTAL_ data",
                     "sZeroRecords": "Data tidak Ditemukan",
