@@ -9,7 +9,7 @@ class RamModel extends Model
     protected $table = 'tbl_ram';
     protected $useTimestamps = true;
     protected $allowedFields = [
-        'merk', 'model', 'slug', 'harga', 'stok', 'jenis_ram',
+        'merk', 'nama', 'slug', 'harga', 'stok', 'jenis_ram',
         'ukuran_ram', 'frekuensi', 'rincian', 'gambar'
     ];
 

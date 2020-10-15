@@ -15,6 +15,9 @@
                                     <div class="col-md-8 mx-auto">
                                         <form action="/casing/save" method="post" enctype="multipart/form-data">
                                             <?= csrf_field(); ?>
+                                            <div class="grid-header">
+                                                <h7 class="my-10"><?= "Informasi Dasar Produk"; ?></h7>
+                                            </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="merk" class="col-sm-2 col-form-label">Merk</label>
                                                 <div class="col-sm-10">
@@ -51,6 +54,9 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="grid-header">
+                                                <h7 class="my-10"><?= "Informasi Dasar Casing"; ?></h7>
+                                            </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="faktor_bentuk" class="col-sm-2 col-form-label">Faktor Bentuk</label>
                                                 <div class="col-sm-10">
@@ -59,6 +65,9 @@
                                                         <?= $validation->getError('faktor_bentuk'); ?>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="grid-header">
+                                                <h7 class="my-10"><?= "Rincian Produk"; ?></h7>
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="rincian" class="col-sm-2 col-form-label">Rincian</label>

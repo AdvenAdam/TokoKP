@@ -29,13 +29,14 @@
                                         <th>Power</th>
                                         <th>Harga</th>
                                         <th>Stok</th>
+                                        <th>Detail</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
                                     <?php foreach ($psu as $val) : ?>
                                         <tr>
-                                            <td><?= $i++; ?></td>
+                                            <td align="middle"><?= $i++; ?></td>
                                             <td><?= $val['merk']; ?></td>
                                             <td><?= $val['nama']; ?></td>
                                             <td><?= $val['sertifikat']; ?></td>
@@ -43,6 +44,7 @@
                                             <td><?= $val['mb_power']; ?></td>
                                             <td><?= $val['harga']; ?></td>
                                             <td><?= $val['stok']; ?></td>
+                                            <td><a href="/psu/<?= $val['slug']; ?>" class="btn btn-success"><i class="mdi mdi-magnify"></i></a></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

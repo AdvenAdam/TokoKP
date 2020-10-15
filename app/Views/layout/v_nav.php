@@ -1,4 +1,4 @@
-<nav class="t-header">
+<nav class="t-header navbar-light navbar-expand ">
     <div class="t-header-brand-wrapper">
         <a href="index.html">
             <img class="logo" src="/zz/src/assets/images/logo.svg" alt="">
@@ -73,7 +73,7 @@
                         <div class="dropdown-body">
                             <div class="dropdown-list">
                                 <div class="image-wrapper">
-                                    <img class="profile-img" src="zz/src/assets/images/profile/male/image_1.png" alt="profile image">
+                                    <img class="profile-img" src="/zz/src/assets/images/profile/male/image_1.png" alt="profile image">
                                     <div class="status-indicator rounded-indicator bg-success"></div>
                                 </div>
                                 <div class="content-wrapper">
@@ -83,7 +83,7 @@
                             </div>
                             <div class="dropdown-list">
                                 <div class="image-wrapper">
-                                    <img class="profile-img" src="zz/src/assets/images/profile/female/image_2.png" alt="profile image">
+                                    <img class="profile-img" src="/zz/src/assets/images/profile/female/image_2.png" alt="profile image">
                                     <div class="status-indicator rounded-indicator bg-success"></div>
                                 </div>
                                 <div class="content-wrapper">

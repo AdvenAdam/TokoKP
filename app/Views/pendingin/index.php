@@ -28,31 +28,24 @@
                                         <th>Jenis Pendingin</th>
                                         <th>Harga</th>
                                         <th>Stok</th>
+                                        <th>Detail</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
                                     <?php foreach ($pendingin as $val) : ?>
                                         <tr>
-                                            <td><?= $i++; ?></td>
+                                            <td align="middle"><?= $i++; ?></td>
                                             <td><?= $val['merk']; ?></td>
                                             <td><?= $val['nama']; ?></td>
                                             <td><?= $val['jenis_pendingin']; ?></td>
                                             <td><?= $val['harga']; ?></td>
                                             <td><?= $val['stok']; ?></td>
+                                            <td><a href="/pendingin/<?= $val['slug']; ?>" class="btn btn-success"><i class="mdi mdi-magnify"></i></a></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th width="5%">No</th>
-                                        <th>Merk</th>
-                                        <th>Nama</th>
-                                        <th>Jenis Pendingin</th>
-                                        <th>Harga</th>
-                                        <th>Stok</th>
-                                    </tr>
-                                </tfoot>
+
                             </table>
                         </div>
                         <!-- /.card-body -->

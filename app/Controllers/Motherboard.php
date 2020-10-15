@@ -186,4 +186,19 @@ class Motherboard  extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->to('/motherboard');
     }
+    public function detail($slug)
+    {
+        $motherboard = $this->motherboardModel->getmotherboard($slug);
+        $data = [
+            'title' => 'Detail Motherboard',
+            'motherboard' => $this->motherboardModel->getmotherboard($slug)
+        ];
+
+        //JIka  data tidak ada di table
+        if (empty($data['motherboard'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('motherboard ' . $slug . ' tidak ditemukan');
+        }
+
+        return view('motherboard/detail', $data);
+    }
 }

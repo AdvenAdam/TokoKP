@@ -32,7 +32,41 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-
+// Cassing
+$routes->get('/casing/create', 'casing::create');
+$routes->get('/casing/edit/(:segment)', 'casing::edit/$1');
+$routes->delete('/casing/(:num)', 'casing::delete/$1');
+$routes->get('/casing/(:any)', 'casing::detail/$1');
+// Memori
+$routes->get('/memori/create', 'memori::create');
+$routes->get('/memori/edit/(:segment)', 'memori::edit/$1');
+$routes->delete('/memori/(:num)', 'memori::delete/$1');
+$routes->get('/memori/(:any)', 'memori::detail/$1');
+// motherboard
+$routes->get('/motherboard/create', 'motherboard::create');
+$routes->get('/motherboard/edit/(:segment)', 'motherboard::edit/$1');
+$routes->delete('/motherboard/(:num)', 'motherboard::delete/$1');
+$routes->get('/motherboard/(:any)', 'motherboard::detail/$1');
+// procesor
+$routes->get('/procesor/create', 'procesor::create');
+$routes->get('/procesor/edit/(:segment)', 'procesor::edit/$1');
+$routes->delete('/procesor/(:num)', 'procesor::delete/$1');
+$routes->get('/procesor/(:any)', 'procesor::detail/$1');
+// psu
+$routes->get('/psu/create', 'psu::create');
+$routes->get('/psu/edit/(:segment)', 'psu::edit/$1');
+$routes->delete('/psu/(:num)', 'psu::delete/$1');
+$routes->get('/psu/(:any)', 'psu::detail/$1');
+// vga
+$routes->get('/vga/create', 'vga::create');
+$routes->get('/vga/edit/(:segment)', 'vga::edit/$1');
+$routes->delete('/vga/(:num)', 'vga::delete/$1');
+$routes->get('/vga/(:any)', 'vga::detail/$1');
+// ram
+$routes->get('/ram/create', 'ram::create');
+$routes->get('/ram/edit/(:segment)', 'ram::edit/$1');
+$routes->delete('/ram/(:num)', 'ram::delete/$1');
+$routes->get('/ram/(:any)', 'ram::detail/$1');
 
 /**
  * --------------------------------------------------------------------

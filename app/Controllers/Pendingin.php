@@ -116,4 +116,19 @@ class Pendingin  extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->to('/pendingin');
     }
+    public function detail($slug)
+    {
+        $pendingin = $this->pendinginModel->getpendingin($slug);
+        $data = [
+            'title' => 'Detail Cooler',
+            'pendingin' => $this->pendinginModel->getpendingin($slug)
+        ];
+
+        //JIka  data tidak ada di table
+        if (empty($data['pendingin'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('pendingin ' . $slug . ' tidak ditemukan');
+        }
+
+        return view('pendingin/detail', $data);
+    }
 }

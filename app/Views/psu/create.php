@@ -13,12 +13,12 @@
                             <div class="item-wrapper">
                                 <div class="row mb-3">
                                     <div class="col-md-8 mx-auto">
-                                        <form action="/memori/save" method="post" enctype="multipart/form-data">
+                                        <form action="/psu/save" method="post" enctype="multipart/form-data">
                                             <?= csrf_field(); ?>
                                             <div class="grid-header">
                                                 <h7 class="my-10"><?= "Informasi Dasar Produk"; ?></h7>
                                             </div>
-                                            <div class="form-group row showcase_row_area">
+                                            <div class="form-group row showcase_row_area mt-4">
                                                 <label for="merk" class="col-sm-2 col-form-label">Merk</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control  <?= ($validation->hasError('merk')) ? 'is-invalid' : ''; ?>" id="merk" name="merk" autofocus value="<?= old('merk'); ?>">
@@ -55,23 +55,32 @@
                                                 </div>
                                             </div>
                                             <div class="grid-header">
-                                                <h7 class="my-10"><?= "Informasi Dasar Memory"; ?></h7>
+                                                <h7 class="my-10"><?= "Informasi Dasar Power Supply"; ?></h7>
                                             </div>
                                             <div class="form-group row showcase_row_area">
-                                                <label for="ukuran_memori" class="col-sm-2 col-form-label">Ukuran Memory</label>
+                                                <label for="sertifikat" class="col-sm-2 col-form-label">Sertifikat</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('ukuran_memori')) ? 'is-invalid' : ''; ?>" require id="ukuran_memori" name="ukuran_memori" value="<?= old('ukuran_memori'); ?>">
+                                                    <input type="text" class="form-control <?= ($validation->hasError('sertifikat')) ? 'is-invalid' : ''; ?>" require id="sertifikat" name="sertifikat" value="<?= old('sertifikat'); ?>">
                                                     <div class="invalid-feedback">
-                                                        <?= $validation->getError('ukuran_memori'); ?>
+                                                        <?= $validation->getError('sertifikat'); ?>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row showcase_row_area">
-                                                <label for="jenis_memori" class="col-sm-2 col-form-label">Jenis Memory</label>
+                                                <label for="jenis_kabel" class="col-sm-2 col-form-label">Jenis Kabel</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('jenis_memori')) ? 'is-invalid' : ''; ?>" require id="jenis_memori" name="jenis_memori" value="<?= old('jenis_memori'); ?>">
+                                                    <input type="text" class="form-control <?= ($validation->hasError('jenis_kabel')) ? 'is-invalid' : ''; ?>" require id="jenis_kabel" name="jenis_kabel" value="<?= old('jenis_kabel'); ?>">
                                                     <div class="invalid-feedback">
-                                                        <?= $validation->getError('jenis_memori'); ?>
+                                                        <?= $validation->getError('jenis_kabel'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row showcase_row_area">
+                                                <label for="mb_power" class="col-sm-2 col-form-label">Psu Power</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control <?= ($validation->hasError('mb_power')) ? 'is-invalid' : ''; ?>" require id="mb_power" name="mb_power" value="<?= old('mb_power'); ?>">
+                                                    <div class="invalid-feedback">
+                                                        <?= $validation->getError('mb_power'); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -90,7 +99,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="gambar" class="col-sm-2 col-form-label">Gambar</label>
                                                 <div class="col-sm-2">
-                                                    <img src="/img/memori/default.jpg" class="img-thumbnail img-preview">
+                                                    <img src="/img/pendingin/default.jpg" class="img-thumbnail img-preview">
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="custom-file">

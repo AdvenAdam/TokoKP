@@ -117,4 +117,20 @@ class Casing  extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->to('/casing');
     }
+
+    public function detail($slug)
+    {
+        $casing = $this->casingModel->getCasing($slug);
+        $data = [
+            'title' => 'Detail Casing',
+            'casing' => $this->casingModel->getCasing($slug)
+        ];
+
+        //JIka  data tidak ada di table
+        if (empty($data['casing'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Casing ' . $slug . ' tidak ditemukan');
+        }
+
+        return view('casing/detail', $data);
+    }
 }

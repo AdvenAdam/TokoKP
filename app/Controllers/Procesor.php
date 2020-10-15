@@ -151,4 +151,19 @@ class Procesor extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->to('/procesor');
     }
+    public function detail($slug)
+    {
+        $procesor = $this->procesorModel->getprocesor($slug);
+        $data = [
+            'title' => 'Detail Processor',
+            'procesor' => $this->procesorModel->getprocesor($slug)
+        ];
+
+        //JIka  data tidak ada di table
+        if (empty($data['procesor'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('procesor ' . $slug . ' tidak ditemukan');
+        }
+
+        return view('procesor/detail', $data);
+    }
 }

@@ -17,9 +17,12 @@
     <link rel="stylesheet" href="/zz/src/assets/css/demo_1/style.css">
     <!-- Layout style -->
     <link rel="shortcut icon" href="/zz/src/asssets/images/favicon.ico" />
+
     <!-- DataTables -->
     <link rel="stylesheet" href="/zz/src/assets/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="/zz/src/assets/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- css utk Gambar -->
+    <link rel="stylesheet" href="/zz/src/assets/css/gambar.css">
 </head>
 
 <body class="header-fixed">
@@ -61,6 +64,8 @@
     <!-- build:js -->
     <script src="/zz/src/assets/js/template.js"></script>
     <script src="/zz/src/assets/js/dashboard.js"></script>
+    <!-- jQuery -->
+    <script src="/zz/src/assets/jquery/jquery.min.js"></script>
     <!-- DataTables -->
     <script src="/zz/src/assets/datatables/jquery.dataTables.min.js"></script>
     <script src="/zz/src/assets/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -72,7 +77,8 @@
         $(document).ready(function() {
             $('#example').DataTable({
                 "oLanguage": {
-                    "sSearch": "Cari :",
+                    "sSearch": "",
+                    "sSearchPlaceholder": "Cari",
                     "sLengthMenu": "Tampil _MENU_ data",
                     "sInfo": "Menampilkan data _START_ sampai _END_ dari _TOTAL_ data",
                     "sZeroRecords": "Data tidak Ditemukan",

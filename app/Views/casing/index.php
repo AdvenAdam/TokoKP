@@ -19,40 +19,32 @@
                             <a href="/casing/create" class="btn btn-primary ">Tambah Data</a>
                         </div>
                         <div class="card-body">
-                            <table id="example" class="table table-bordered table-hover">
+                            <table id="example" class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th width="5%">No</th>
-                                        <th>Merk</th>
-                                        <th>Nama</th>
-                                        <th>Faktor Bentuk</th>
-                                        <th>Harga</th>
-                                        <th>Stok</th>
+                                        <th width="5%"><b>No</b></th>
+                                        <th><b>Merk</b></th>
+                                        <th><b>Nama</b></th>
+                                        <th><b>Faktor Bentuk</b></th>
+                                        <th><b>Harga</b></th>
+                                        <th><b>Stok</b></th>
+                                        <th><b>Detail</b></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
                                     <?php foreach ($casing as $val) : ?>
                                         <tr>
-                                            <td><?= $i++; ?></td>
+                                            <td align="middle"><?= $i++; ?></td>
                                             <td><?= $val['merk']; ?></td>
                                             <td><?= $val['nama']; ?></td>
                                             <td><?= $val['faktor_bentuk']; ?></td>
                                             <td><?= $val['harga']; ?></td>
                                             <td><?= $val['stok']; ?></td>
+                                            <td><a href="/casing/<?= $val['slug']; ?>" class="btn btn-success"><i class="mdi mdi-magnify"></i></a></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th width="5%">No</th>
-                                        <th>Merk</th>
-                                        <th>Nama</th>
-                                        <th>Faktor Bentuk</th>
-                                        <th>Harga</th>
-                                        <th>Stok</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

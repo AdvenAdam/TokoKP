@@ -16,9 +16,6 @@
                             </div>
                         <?php endif; ?>
                         <div class="card-body">
-                            <a href="/motherboard/create" class="btn btn-primary ">Tambah Data</a>
-                        </div>
-                        <div class="card-body">
                             <table id="example" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
@@ -31,13 +28,14 @@
                                         <th>Base Clock</th>
                                         <th>Harga</th>
                                         <th>Stok</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
                                     <?php foreach ($motherboard as $val) : ?>
                                         <tr>
-                                            <td><?= $i++; ?></td>
+                                            <td align="middle"><?= $i++; ?></td>
                                             <td><?= $val['merk']; ?></td>
                                             <td><?= $val['nama']; ?></td>
                                             <td><?= $val['faktor_bentuk']; ?></td>
@@ -46,22 +44,11 @@
                                             <td><?= $val['kekuatan_cpu']; ?></td>
                                             <td><?= $val['harga']; ?></td>
                                             <td><?= $val['stok']; ?></td>
+                                            <td><a href="/motherboard/<?= $val['slug']; ?>" class="btn btn-success"><i class="mdi mdi-magnify"></i></a></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th width="5%">No</th>
-                                        <th>Merk</th>
-                                        <th>Nama</th>
-                                        <th>Faktor Bentuk</th>
-                                        <th>Socket</th>
-                                        <th>Chipset</th>
-                                        <th>Base Clock</th>
-                                        <th>Harga</th>
-                                        <th>Stok</th>
-                                    </tr>
-                                </tfoot>
+
                             </table>
                         </div>
                         <!-- /.card-body -->

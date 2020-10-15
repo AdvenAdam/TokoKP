@@ -124,4 +124,19 @@ class Memori extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->to('/memori');
     }
+    public function detail($slug)
+    {
+        $memori = $this->memoriModel->getmemori($slug);
+        $data = [
+            'title' => 'Detail Memori',
+            'memori' => $this->memoriModel->getmemori($slug)
+        ];
+
+        //JIka  data tidak ada di table
+        if (empty($data['memori'])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('memori ' . $slug . ' tidak ditemukan');
+        }
+
+        return view('memori/detail', $data);
+    }
 }
