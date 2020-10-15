@@ -133,4 +133,22 @@ class Casing  extends BaseController
 
         return view('casing/detail', $data);
     }
+    public function delete($id)
+    {
+
+        //cari gambar berdasar id
+        $casing = $this->casingModel->find($id);
+
+        // cek gambar bila gambar default aga rfile default.jpg tdk terhapus
+        if ($casing['gambar'] != 'default.jpg') {
+
+            // hapus gambar
+            unlink('img/casing/' . $casing['gambar']);
+        }
+
+
+        $this->casingModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil dihapus');
+        return redirect()->to('/casing');
+    }
 }

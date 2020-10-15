@@ -145,4 +145,22 @@ class Ram extends BaseController
 
         return view('ram/detail', $data);
     }
+    public function delete($id)
+    {
+
+        //cari gambar berdasar id
+        $ram = $this->ramModel->find($id);
+
+        // cek gambar bila gambar default aga rfile default.jpg tdk terhapus
+        if ($ram['gambar'] != 'default.jpg') {
+
+            // hapus gambar
+            unlink('img/ram/' . $ram['gambar']);
+        }
+
+
+        $this->ramModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil dihapus');
+        return redirect()->to('/ram');
+    }
 }

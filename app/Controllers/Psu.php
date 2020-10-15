@@ -145,4 +145,22 @@ class Psu  extends BaseController
 
         return view('psu/detail', $data);
     }
+    public function delete($id)
+    {
+
+        //cari gambar berdasar id
+        $psu = $this->psuModel->find($id);
+
+        // cek gambar bila gambar default aga rfile default.jpg tdk terhapus
+        if ($psu['gambar'] != 'default.jpg') {
+
+            // hapus gambar
+            unlink('img/psu/' . $psu['gambar']);
+        }
+
+
+        $this->psuModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil dihapus');
+        return redirect()->to('/psu');
+    }
 }

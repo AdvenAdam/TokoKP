@@ -131,4 +131,22 @@ class Pendingin  extends BaseController
 
         return view('pendingin/detail', $data);
     }
+    public function delete($id)
+    {
+
+        //cari gambar berdasar id
+        $pendingin = $this->pendinginModel->find($id);
+
+        // cek gambar bila gambar default aga rfile default.jpg tdk terhapus
+        if ($pendingin['gambar'] != 'default.jpg') {
+
+            // hapus gambar
+            unlink('img/pendingin/' . $pendingin['gambar']);
+        }
+
+
+        $this->pendinginModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil dihapus');
+        return redirect()->to('/pendingin');
+    }
 }

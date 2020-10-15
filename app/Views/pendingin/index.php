@@ -21,14 +21,14 @@
                         <div class="card-body">
                             <table id="example" class="table table-bordered table-hover">
                                 <thead>
-                                    <tr>
-                                        <th width="5%">No</th>
-                                        <th>Merk</th>
-                                        <th>Nama</th>
-                                        <th>Jenis Pendingin</th>
-                                        <th>Harga</th>
-                                        <th>Stok</th>
-                                        <th>Detail</th>
+                                    <tr align="middle">
+                                        <th width="5%"><b>No</th>
+                                        <th><b>Merk</th>
+                                        <th><b>Nama</th>
+                                        <th><b>Jenis Pendingin</th>
+                                        <th><b>Harga</th>
+                                        <th><b>Stok</th>
+                                        <th><b>#</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,7 +41,14 @@
                                             <td><?= $val['jenis_pendingin']; ?></td>
                                             <td><?= $val['harga']; ?></td>
                                             <td><?= $val['stok']; ?></td>
-                                            <td><a href="/pendingin/<?= $val['slug']; ?>" class="btn btn-success"><i class="mdi mdi-magnify"></i></a></td>
+                                            <td><a href="/pendingin/<?= $val['slug']; ?>" class="btn btn-success"><i class="mdi mdi-magnify"></i></a>
+                                                <form action="/pendingin/<?= $val['id']; ?>" method="post" class="d-inline">
+                                                    <?= csrf_field(); ?>
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?')"><i class="mdi mdi-delete"></i></button>
+
+                                                </form>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

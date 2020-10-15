@@ -166,4 +166,22 @@ class Procesor extends BaseController
 
         return view('procesor/detail', $data);
     }
+    public function delete($id)
+    {
+
+        //cari gambar berdasar id
+        $procesor = $this->procesorModel->find($id);
+
+        // cek gambar bila gambar default aga rfile default.jpg tdk terhapus
+        if ($procesor['gambar'] != 'default.jpg') {
+
+            // hapus gambar
+            unlink('img/procesor/' . $procesor['gambar']);
+        }
+
+
+        $this->procesorModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil dihapus');
+        return redirect()->to('/procesor');
+    }
 }

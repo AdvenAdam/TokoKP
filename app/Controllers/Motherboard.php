@@ -201,4 +201,22 @@ class Motherboard  extends BaseController
 
         return view('motherboard/detail', $data);
     }
+    public function delete($id)
+    {
+
+        //cari gambar berdasar id
+        $motherboard = $this->motherboardModel->find($id);
+
+        // cek gambar bila gambar default aga rfile default.jpg tdk terhapus
+        if ($motherboard['gambar'] != 'default.jpg') {
+
+            // hapus gambar
+            unlink('img/motherboard/' . $motherboard['gambar']);
+        }
+
+
+        $this->motherboardModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil dihapus');
+        return redirect()->to('/motherboard');
+    }
 }

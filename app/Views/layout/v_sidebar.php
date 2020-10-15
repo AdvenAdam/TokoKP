@@ -59,6 +59,9 @@
                         <a href="/motherboard">Motherboard</a>
                     </li>
                     <li>
+                        <a href="/casing">Cassing</a>
+                    </li>
+                    <li>
                         <a href="/procesor">Processor</a>
                     </li>
                     <li>
@@ -77,7 +80,7 @@
                         <a href="/casing">Cassing</a>
                     </li>
                     <li>
-                        <a href="/pendingin">cooler</a>
+                        <a href="/pendingin">Cooler</a>
                     </li>
                 </ul>
             </li>

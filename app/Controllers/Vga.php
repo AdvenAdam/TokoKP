@@ -166,4 +166,22 @@ class Vga extends BaseController
 
         return view('vga/detail', $data);
     }
+    public function delete($id)
+    {
+
+        //cari gambar berdasar id
+        $vga = $this->vgaModel->find($id);
+
+        // cek gambar bila gambar default aga rfile default.jpg tdk terhapus
+        if ($vga['gambar'] != 'default.jpg') {
+
+            // hapus gambar
+            unlink('img/vga/' . $vga['gambar']);
+        }
+
+
+        $this->vgaModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil dihapus');
+        return redirect()->to('/vga');
+    }
 }

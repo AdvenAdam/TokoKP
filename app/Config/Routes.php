@@ -67,6 +67,11 @@ $routes->get('/ram/create', 'ram::create');
 $routes->get('/ram/edit/(:segment)', 'ram::edit/$1');
 $routes->delete('/ram/(:num)', 'ram::delete/$1');
 $routes->get('/ram/(:any)', 'ram::detail/$1');
+// pendingin
+$routes->get('/pendingin/create', 'pendingin::create');
+$routes->get('/pendingin/edit/(:segment)', 'pendingin::edit/$1');
+$routes->delete('/pendingin/(:num)', 'pendingin::delete/$1');
+$routes->get('/pendingin/(:any)', 'pendingin::detail/$1');
 
 /**
  * --------------------------------------------------------------------

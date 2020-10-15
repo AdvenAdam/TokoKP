@@ -139,4 +139,22 @@ class Memori extends BaseController
 
         return view('memori/detail', $data);
     }
+    public function delete($id)
+    {
+
+        //cari gambar berdasar id
+        $memori = $this->memoriModel->find($id);
+
+        // cek gambar bila gambar default aga rfile default.jpg tdk terhapus
+        if ($memori['gambar'] != 'default.jpg') {
+
+            // hapus gambar
+            unlink('img/memori/' . $memori['gambar']);
+        }
+
+
+        $this->memoriModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil dihapus');
+        return redirect()->to('/memori');
+    }
 }

@@ -21,14 +21,14 @@
                         <div class="card-body">
                             <table id="example" class="table table-hover">
                                 <thead>
-                                    <tr>
+                                    <tr align="middle">
                                         <th width="5%"><b>No</b></th>
                                         <th><b>Merk</b></th>
                                         <th><b>Nama</b></th>
                                         <th><b>Faktor Bentuk</b></th>
                                         <th><b>Harga</b></th>
                                         <th><b>Stok</b></th>
-                                        <th><b>Detail</b></th>
+                                        <th><b>#</b></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,7 +41,14 @@
                                             <td><?= $val['faktor_bentuk']; ?></td>
                                             <td><?= $val['harga']; ?></td>
                                             <td><?= $val['stok']; ?></td>
-                                            <td><a href="/casing/<?= $val['slug']; ?>" class="btn btn-success"><i class="mdi mdi-magnify"></i></a></td>
+                                            <td><a href="/casing/<?= $val['slug']; ?>" class="btn btn-success"><i class="mdi mdi-magnify"></i></a>
+                                                <form action="/casing/<?= $val['id']; ?>" method="post" class="d-inline">
+                                                    <?= csrf_field(); ?>
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?')"><i class="mdi mdi-delete"></i></button>
+
+                                                </form>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

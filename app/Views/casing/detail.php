@@ -20,7 +20,7 @@
 
                                             <tr>
                                                 <td width="10%">Merk</td>
-                                                <td><?= $casing['merk']; ?></td>
+                                                <td><?= $casing['id']; ?></td>
                                             </tr>
                                             <tr>
                                                 <td width="10%"> Nama</td>
