@@ -16,6 +16,9 @@
                             </div>
                         <?php endif; ?>
                         <div class="card-body">
+                            <a href="/motherboard/create" class="btn btn-primary ">Tambah Data</a>
+                        </div>
+                        <div class="card-body">
                             <table id="example" class="table table-bordered table-hover">
                                 <thead>
                                     <tr align="middle">
