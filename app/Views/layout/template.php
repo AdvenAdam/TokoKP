@@ -76,14 +76,17 @@
         // data table
         $(document).ready(function() {
             $('#example').DataTable({
+                "scrollX": true,
                 "oLanguage": {
                     "sSearch": "",
                     "sSearchPlaceholder": "cari",
                     "sLengthMenu": "Tampil _MENU_ data",
                     "sInfo": "Menampilkan data _START_ sampai _END_ dari _TOTAL_ data",
                     "sZeroRecords": "Data tidak Ditemukan",
-                    "sInfoFiltered": " - disaring dari _MAX_ data"
+                    "sInfoFiltered": " - disaring dari _MAX_ data",
                 }
+
+
             });
 
         });

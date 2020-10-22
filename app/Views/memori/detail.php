@@ -40,7 +40,7 @@
                                             </tr>
                                             <tr>
                                                 <td width="10%">Jenis Memori</td>
-                                                <td><?= $memori['ukuran_memori']; ?></td>
+                                                <td><?= $memori['jenis_memori']; ?></td>
                                             </tr>
                                             <tr>
                                                 <td width="10%">Rincian

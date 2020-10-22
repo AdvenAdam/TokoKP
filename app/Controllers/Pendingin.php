@@ -149,4 +149,99 @@ class Pendingin  extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil dihapus');
         return redirect()->to('/pendingin');
     }
+    public function edit($slug)
+    {
+        $data = [
+            'title' => 'Ubah Data Cooler',
+            'validation' => \Config\Services::validation(),
+            'pendingin' => $this->pendinginModel->getpendingin($slug)
+        ];
+        return view('pendingin/edit', $data);
+    }
+
+    // update
+    public function update($id)
+    {
+        //cek nama
+        $pendinginlama = $this->pendinginModel->getpendingin($this->request->getVar('slug'));
+        if ($pendinginlama['nama'] == $this->request->getVar('nama')) {
+            $rule_nama = 'required';
+        } else {
+            $rule_nama = 'required|is_unique[tbl_pendingin.nama]';
+        }
+        if (!$this->validate([
+            'merk' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'nama' => [
+                'rules' => $rule_nama,
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'is_unique' => '{field} sudah ada'
+                ]
+            ],
+            'harga' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'stok' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'jenis_pendingin' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'gambar' => [
+                'rules' => 'is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'ukuran gambar terlalu besar',
+                    'is_image' => 'yang anda pilih bukan gambar',
+                    'mime_in' => 'yang anda pilih bukan gambar'
+                ]
+            ]
+
+        ])) {
+
+            return redirect()->to('/pendingin/edit/' . $this->request->getVar('slug'))->withInput();
+        }
+
+        $fileGambar = $this->request->getFile('gambar');
+
+        // cek gambar, Apakah tetap gambar lama
+        if ($fileGambar->getError() == 4) {
+            $namaGambar = $this->request->getVar('gambarLama');
+        } else {
+            // generate nama file Gambar
+            $namaGambar = $fileGambar->getRandomName();
+            // pindah gambar
+            $fileGambar->move('img/pendingin', $namaGambar);
+            // hapus file gambar lama
+            unlink('img/pendingin/' . $this->request->getVar('gambarLama'));
+        }
+        $slug = url_title($this->request->getVar('nama'), '-', true);
+        $this->pendinginModel->save([
+            'id' => $id,
+            'merk' => $this->request->getVar('merk'),
+            'nama' => $this->request->getVar('nama'),
+            'slug' => $slug,
+            'harga' => $this->request->getVar('harga'),
+            'stok' => $this->request->getVar('stok'),
+            'jenis_pendingin' => $this->request->getVar('jenis_pendingin'),
+            'gambar' => $namaGambar,
+            'rincian' => $this->request->getVar('rincian'),
+        ]);
+
+        session()->setFlashdata('pesan', 'Data Berhasil Diubah');
+        return redirect()->to('/pendingin');
+    }
 }

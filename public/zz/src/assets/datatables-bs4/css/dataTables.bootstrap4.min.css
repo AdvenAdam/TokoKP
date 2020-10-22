@@ -67,6 +67,7 @@ div.dataTables_wrapper div.dataTables_processing {
   text-align: center;
   padding: 1em 0;
 }
+
 table.dataTable thead tr {
   background-color: green;
 }

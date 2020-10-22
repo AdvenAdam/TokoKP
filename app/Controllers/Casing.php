@@ -241,7 +241,8 @@ class Casing  extends BaseController
             'harga' => $this->request->getVar('harga'),
             'stok' => $this->request->getVar('stok'),
             'faktor_bentuk' => $this->request->getVar('faktor_bentuk'),
-            'gambar' => $namaGambar
+            'gambar' => $namaGambar,
+            'rincian' => $this->request->getVar('rincian')
         ]);
 
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');

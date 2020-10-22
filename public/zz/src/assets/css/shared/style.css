@@ -1515,9 +1515,13 @@ pre code {
 .table-sm td {
   padding: 10px 15px;
 }
+.table-container {
+	overflow: auto;
+}
 
 .table-bordered {
   border: 1px solid #f2f4f9;
+
 }
 .table-bordered th,
 .table-bordered td {
@@ -3877,7 +3881,7 @@ input[type="button"].btn-block {
   line-height: 1.5;
   color: #f8f9fb;
   content: "Browse";
-  background-color:var(--primary);
+  background-color: var(--primary);
   border-left: inherit;
   border-radius: 0 0.25rem 0.25rem 0;
 }
@@ -13473,6 +13477,15 @@ table.info-table tr th.actions {
     section {
     padding-top: 80px;
   }
+}
+
+.page-item.active .page-link {
+  background-color: var(--primary) !important;
+  border: 1px solid var(--primary);
+  color: var(--white);
+}
+.page-link {
+  color: rgb(92, 92, 92);
 }
 
 /*-------------------------------------------------------------------*/

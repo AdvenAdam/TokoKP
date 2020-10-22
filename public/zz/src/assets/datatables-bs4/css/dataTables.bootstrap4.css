@@ -215,3 +215,20 @@ div.table-responsive
   > div[class^="col-"]:last-child {
   padding-right: 0;
 }
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  color: white !important;
+  border: 1px solid #977ef3 !important;
+  background-color: #977ef3 !important;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #977ef3),
+    color-stop(100%, #977ef3)
+  ) !important;
+  background: -webkit-linear-gradient(top, #977ef3 0%, #977ef3 100%) !important;
+  background: -moz-linear-gradient(top, #977ef3 0%, #977ef3 100%) !important;
+  background: -ms-linear-gradient(top, #977ef3 0%, #977ef3 100%) !important;
+  background: -o-linear-gradient(top, #977ef3 0%, #977ef3 100%) !important;
+  background: linear-gradient(to bottom, #977ef3 0%, #977ef3 100%) !important;
+}

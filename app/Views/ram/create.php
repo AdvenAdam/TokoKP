@@ -13,7 +13,7 @@
                             <div class="item-wrapper">
                                 <div class="row mb-3">
                                     <div class="col-md-8 mx-auto">
-                                        <form action="/pendingin/save" method="post" enctype="multipart/form-data">
+                                        <form action="/ram/save" method="post" enctype="multipart/form-data">
                                             <?= csrf_field(); ?>
                                             <div class="grid-header">
                                                 <h7 class="my-10"><?= "Informasi Dasar Produk"; ?></h7>
@@ -67,7 +67,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row showcase_row_area">
-                                                <label for="ukuran_ram" class="col-sm-2 col-form-label">Ukuan Ram</label>
+                                                <label for="ukuran_ram" class="col-sm-2 col-form-label">Ukuran Ram</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control <?= ($validation->hasError('ukuran_ram')) ? 'is-invalid' : ''; ?>" require id="ukuran_ram" name="ukuran_ram" value="<?= old('ukuran_ram'); ?>">
                                                     <div class="invalid-feedback">
@@ -101,7 +101,7 @@
                                                 <div class="col-sm-2">
                                                     <img src="/img/ram/default.jpg" class="img-thumbnail img-preview">
                                                 </div>
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-8">
                                                     <div class="custom-file">
                                                         <input type="file" class="custom-file-input <?= ($validation->hasError('gambar')) ? 'is-invalid' : ''; ?>" id="gambar" name="gambar" onchange="previewImg()">
                                                         <div class="invalid-feedback">

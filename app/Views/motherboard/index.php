@@ -19,7 +19,7 @@
                             <a href="/motherboard/create" class="btn btn-primary ">Tambah Data</a>
                         </div>
                         <div class="card-body">
-                            <table id="example" class="table table-bordered table-hover">
+                            <table id="example" class="table table-bordered display nowrap table-hover">
                                 <thead>
                                     <tr align="middle">
                                         <th width="5%"><b>No</th>
@@ -28,7 +28,6 @@
                                         <th><b>Faktor Bentuk</th>
                                         <th><b>Socket</th>
                                         <th><b>Chipset</th>
-                                        <th><b>Base Clock</th>
                                         <th><b>Harga</th>
                                         <th><b>Stok</th>
                                         <th><b>#</th>
@@ -37,22 +36,21 @@
                                 <tbody>
                                     <?php $i = 1; ?>
                                     <?php foreach ($motherboard as $val) : ?>
-                                        <tr>
-                                            <td align="middle"><?= $i++; ?></td>
+                                        <tr align="middle">
+                                            <td><?= $i++; ?></td>
                                             <td><?= $val['merk']; ?></td>
                                             <td><?= $val['nama']; ?></td>
                                             <td><?= $val['faktor_bentuk']; ?></td>
                                             <td><?= $val['socket']; ?></td>
                                             <td><?= $val['chipset']; ?></td>
-                                            <td><?= $val['kekuatan_cpu']; ?></td>
                                             <td><?= $val['harga']; ?></td>
                                             <td><?= $val['stok']; ?></td>
-                                            <td><a href="/motherboard/<?= $val['slug']; ?>" class="btn btn-success"><i class="mdi mdi-magnify"></i></a>
+                                            <td><a href="/motherboard/<?= $val['slug']; ?>" class="btn btn-info"><i class="mdi mdi-magnify"></i></a>
+                                                <a href="/motherboard/edit/<?= $val['slug']; ?>" class="btn btn-light"><i class="mdi mdi-pencil-box-outline"></i></a>
                                                 <form action="/motherboard/<?= $val['id']; ?>" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?')"><i class="mdi mdi-delete"></i></button>
-
+                                                    <button type="submit" class="btn btn-dark" onclick="return confirm('Apakah Anda Yakin ?')"><i class="mdi mdi-delete"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

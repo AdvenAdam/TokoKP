@@ -34,8 +34,8 @@
                                 <tbody>
                                     <?php $i = 1; ?>
                                     <?php foreach ($casing as $val) : ?>
-                                        <tr>
-                                            <td align="middle"><?= $i++; ?></td>
+                                        <tr align="middle">
+                                            <td><?= $i++; ?></td>
                                             <td><?= $val['merk']; ?></td>
                                             <td><?= $val['nama']; ?></td>
                                             <td><?= $val['faktor_bentuk']; ?></td>

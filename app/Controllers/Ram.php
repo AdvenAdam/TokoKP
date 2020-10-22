@@ -163,4 +163,113 @@ class Ram extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil dihapus');
         return redirect()->to('/ram');
     }
+    public function edit($slug)
+    {
+        $data = [
+            'title' => 'Ubah Data RAM',
+            'validation' => \Config\Services::validation(),
+            'ram' => $this->ramModel->getram($slug)
+        ];
+        return view('ram/edit', $data);
+    }
+
+    // update
+    public function update($id)
+    {
+        //cek nama
+        $ramlama = $this->ramModel->getram($this->request->getVar('slug'));
+        if ($ramlama['nama'] == $this->request->getVar('nama')) {
+            $rule_nama = 'required';
+        } else {
+            $rule_nama = 'required|is_unique[tbl_ram.nama]';
+        }
+        if (!$this->validate([
+            'merk' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'nama' => [
+                'rules' => $rule_nama,
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'is_unique' => '{field} sudah ada'
+                ]
+            ],
+            'harga' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'stok' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'jenis_ram' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'ukuran_ram' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'frekuensi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'gambar' => [
+                'rules' => 'is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'ukuran gambar terlalu besar',
+                    'is_image' => 'yang anda pilih bukan gambar',
+                    'mime_in' => 'yang anda pilih bukan gambar'
+                ]
+            ]
+
+        ])) {
+
+            return redirect()->to('/ram/edit/' . $this->request->getVar('slug'))->withInput();
+        }
+
+        $fileGambar = $this->request->getFile('gambar');
+
+        // cek gambar, Apakah tetap gambar lama
+        if ($fileGambar->getError() == 4) {
+            $namaGambar = $this->request->getVar('gambarLama');
+        } else {
+            // generate nama file Gambar
+            $namaGambar = $fileGambar->getRandomName();
+            // pindah gambar
+            $fileGambar->move('img/ram', $namaGambar);
+            // hapus file gambar lama
+            unlink('img/ram/' . $this->request->getVar('gambarLama'));
+        }
+        $slug = url_title($this->request->getVar('nama'), '-', true);
+        $this->ramModel->save([
+            'id' => $id,
+            'merk' => $this->request->getVar('merk'),
+            'nama' => $this->request->getVar('nama'),
+            'slug' => $slug,
+            'harga' => $this->request->getVar('harga'),
+            'stok' => $this->request->getVar('stok'),
+            'jenis_ram' => $this->request->getVar('jenis_ram'),
+            'ukuran_ram' => $this->request->getVar('ukuran_ram'),
+            'frekuensi' => $this->request->getVar('frekuensi'),
+            'gambar' => $namaGambar,
+            'rincian' => $this->request->getVar('rincian'),
+        ]);
+
+        session()->setFlashdata('pesan', 'Data Berhasil Diubah');
+        return redirect()->to('/ram');
+    }
 }

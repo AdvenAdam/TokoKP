@@ -184,4 +184,134 @@ class Procesor extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil dihapus');
         return redirect()->to('/procesor');
     }
+    public function edit($slug)
+    {
+        $data = [
+            'title' => 'Ubah Data Casing',
+            'validation' => \Config\Services::validation(),
+            'procesor' => $this->procesorModel->getprocesor($slug)
+        ];
+        return view('procesor/edit', $data);
+    }
+
+    // update
+    public function update($id)
+    {
+        //cek nama
+        $procesorlama = $this->procesorModel->getprocesor($this->request->getVar('slug'));
+        if ($procesorlama['nama'] == $this->request->getVar('nama')) {
+            $rule_nama = 'required';
+        } else {
+            $rule_nama = 'required|is_unique[tbl_procesor.nama]';
+        }
+        if (!$this->validate([
+            'merk' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'nama' => [
+                'rules' => $rule_nama,
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'is_unique' => '{field} sudah ada'
+                ]
+            ],
+            'harga' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'stok' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'jml_core' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'jml_threads' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'socket' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'frekuensi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'iGPU' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'cache' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'gambar' => [
+                'rules' => 'is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'ukuran gambar terlalu besar',
+                    'is_image' => 'yang anda pilih bukan gambar',
+                    'mime_in' => 'yang anda pilih bukan gambar'
+                ]
+            ]
+
+        ])) {
+
+            return redirect()->to('/procesor/edit/' . $this->request->getVar('slug'))->withInput();
+        }
+
+        $fileGambar = $this->request->getFile('gambar');
+
+        // cek gambar, Apakah tetap gambar lama
+        if ($fileGambar->getError() == 4) {
+            $namaGambar = $this->request->getVar('gambarLama');
+        } else {
+            // generate nama file Gambar
+            $namaGambar = $fileGambar->getRandomName();
+            // pindah gambar
+            $fileGambar->move('img/procesor', $namaGambar);
+            // hapus file gambar lama
+            unlink('img/procesor/' . $this->request->getVar('gambarLama'));
+        }
+        $slug = url_title($this->request->getVar('nama'), '-', true);
+        $this->procesorModel->save([
+            'id' => $id,
+            'merk' => $this->request->getVar('merk'),
+            'nama' => $this->request->getVar('nama'),
+            'slug' => $slug,
+            'harga' => $this->request->getVar('harga'),
+            'stok' => $this->request->getVar('stok'),
+            'jml_core' => $this->request->getVar('jml_core'),
+            'jml_threads' => $this->request->getVar('jml_threads'),
+            'socket' => $this->request->getVar('socket'),
+            'frekuensi' => $this->request->getVar('frekuensi'),
+            'iGPU' => $this->request->getVar('iGPU'),
+            'cache' => $this->request->getVar('cache'),
+            'gambar' => $namaGambar,
+            'rincian' => $this->request->getVar('rincian'),
+        ]);
+
+        session()->setFlashdata('pesan', 'Data Berhasil Diubah');
+        return redirect()->to('/procesor');
+    }
 }

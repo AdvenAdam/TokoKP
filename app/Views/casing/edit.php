@@ -82,7 +82,7 @@
                                                 <div class="col-sm-2">
                                                     <img src="/img/casing/<?= $casing['gambar']; ?>" class="img-thumbnail img-preview">
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-8">
                                                     <div class="custom-file">
                                                         <input type="file" class="custom-file-input <?= ($validation->hasError('gambar')) ? 'is-invalid' : ''; ?>" id="gambar" name="gambar" onchange="previewImg()">
                                                         <div class="invalid-feedback">

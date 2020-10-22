@@ -20,7 +20,7 @@
                         <div class="card-body">
                             <table id="example" class="table table-bordered table-hover">
                                 <thead>
-                                    <tr>
+                                    <tr align="middle">
                                         <th width="5%"><b>No</th>
                                         <th><b>Merk</th>
                                         <th><b>Nama</th>
@@ -33,19 +33,19 @@
                                 <tbody>
                                     <?php $i = 1; ?>
                                     <?php foreach ($vga as $val) : ?>
-                                        <tr>
-                                            <td align="middle"><?= $i++; ?></td>
+                                        <tr align="middle">
+                                            <td><?= $i++; ?></td>
                                             <td><?= $val['merk']; ?></td>
                                             <td><?= $val['nama']; ?></td>
                                             <td><?= $val['ukuran_memori'] . '/' . $val['tipe_memori'] . '/' . $val['lebar_memori']; ?></td>
                                             <td><?= $val['harga']; ?></td>
                                             <td><?= $val['stok']; ?></td>
-                                            <td><a href="/vga/<?= $val['slug']; ?>" class="btn btn-success"><i class="mdi mdi-magnify"></i></a>
+                                            <td><a href="/vga/<?= $val['slug']; ?>" class="btn btn-info"><i class="mdi mdi-magnify"></i></a>
+                                                <a href="/vga/edit/<?= $val['slug']; ?>" class="btn btn-light"><i class="mdi mdi-pencil-box-outline"></i></a>
                                                 <form action="/vga/<?= $val['id']; ?>" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ?')"><i class="mdi mdi-delete"></i></button>
-
+                                                    <button type="submit" class="btn btn-dark" onclick="return confirm('Apakah Anda Yakin ?')"><i class="mdi mdi-delete"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
