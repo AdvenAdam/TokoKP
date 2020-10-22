@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12 py-5">
                     <h4>Dashboard</h4>
-                    <p class="text-gray">Welcome aboard, Allen Clerk</p>
+                    <p class="text-gray">Welcome aboard,User</p>
                 </div>
             </div>
             <div class="row">
