@@ -273,4 +273,27 @@ class Psu  extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');
         return redirect()->to('/psu');
     }
+    public function tambah()
+    {
+        $data = [
+            'title' => 'Tambah Stock Barang',
+            'psu' => $this->psuModel->getpsu(),
+            'total' => count($this->psuModel->getpsu())
+        ];
+        return view('psu/tambah', $data);
+    }
+    public function addstok($id)
+    {
+        $stokLama = intval($this->request->getVar('stokLama'));
+        $stokTambah = intval($this->request->getVar('stok'));
+        $stokBaru =  $stokTambah + $stokLama;
+
+        $this->psuModel->save(
+            [
+                'id' => $id,
+                'stok' => $stokBaru,
+            ]
+        );
+        return redirect()->to('/psu/tambah');
+    }
 }

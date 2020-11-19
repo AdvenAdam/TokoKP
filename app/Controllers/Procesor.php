@@ -314,4 +314,27 @@ class Procesor extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');
         return redirect()->to('/procesor');
     }
+    public function tambah()
+    {
+        $data = [
+            'title' => 'Tambah Stock Barang',
+            'procesor' => $this->procesorModel->getprocesor(),
+            'total' => count($this->procesorModel->getprocesor())
+        ];
+        return view('procesor/tambah', $data);
+    }
+    public function addstok($id)
+    {
+        $stokLama = intval($this->request->getVar('stokLama'));
+        $stokTambah = intval($this->request->getVar('stok'));
+        $stokBaru =  $stokTambah + $stokLama;
+
+        $this->procesorModel->save(
+            [
+                'id' => $id,
+                'stok' => $stokBaru,
+            ]
+        );
+        return redirect()->to('/procesor/tambah');
+    }
 }

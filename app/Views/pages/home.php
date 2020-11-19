@@ -18,7 +18,7 @@
                                 <div class="d-flex justify-content-between">
                                     <img src="/img/aset/casing.png" class="gambardashbord">
                                     <p> Varian<br>
-                                        5 product
+                                        <?= $casing; ?> product
                                     </p>
                                 </div>
                                 <div class="wrapper w-50 mt-2">
@@ -36,7 +36,7 @@
                                 <div class="d-flex justify-content-between">
                                     <img src="/img/aset/cooler.png" class="gambardashbord">
                                     <p>Varian<br>
-                                        6 product
+                                        <?= $pendingin; ?> product
                                 </div>
                                 <div class="wrapper w-50 mt-2">
                                     <canvas height="45" id="stat-line_2"></canvas>
@@ -53,7 +53,7 @@
                                 <div class="d-flex justify-content-between">
                                     <img src="/img/aset/harddrive.png" class="gambardashbord">
                                     <p> Varian<br>
-                                        5 product
+                                        <?= $memori; ?> product
                                     </p>
                                 </div>
                                 <div class="wrapper w-50 mt-2">
@@ -71,7 +71,7 @@
                                 <div class="d-flex justify-content-between">
                                     <img src="/img/aset/motherboard.png" class="gambardashbord">
                                     <p>Varian<br>
-                                        6 product
+                                        <?= $motherboard; ?> product
                                 </div>
                                 <div class="wrapper w-50 mt-2">
                                     <canvas height="45" id="stat-line_4"></canvas>
@@ -90,7 +90,7 @@
                                 <div class="d-flex justify-content-between">
                                     <img src="/img/aset/processor.png" class="gambardashbord">
                                     <p> Varian<br>
-                                        5 product
+                                        <?= $procesor; ?> product
                                     </p>
                                 </div>
                                 <div class="wrapper w-50 mt-2">
@@ -108,7 +108,7 @@
                                 <div class="d-flex justify-content-between">
                                     <img src="/img/aset/psu.png" class="gambardashbord">
                                     <p>Varian<br>
-                                        6 product
+                                        <?= $psu; ?>product
                                 </div>
                                 <div class="wrapper w-50 mt-2">
                                     <canvas height="45" id="stat-line_6"></canvas>
@@ -125,7 +125,7 @@
                                 <div class="d-flex justify-content-between">
                                     <img src="/img/aset/ram.png" class="gambardashbord">
                                     <p> Varian<br>
-                                        5 product
+                                        <?= $ram; ?> product
                                     </p>
                                 </div>
                                 <div class="wrapper w-50 mt-2">
@@ -143,7 +143,7 @@
                                 <div class="d-flex justify-content-between">
                                     <img src="/img/aset/vga.png" class="gambardashbord">
                                     <p>Varian<br>
-                                        6 product
+                                        <?= $vga; ?> product
                                 </div>
                                 <div class="wrapper w-50 mt-2">
                                     <canvas height="45" id="stat-line_8"></canvas>

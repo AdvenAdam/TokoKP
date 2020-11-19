@@ -50,7 +50,7 @@
                                                 <form action="/motherboard/<?= $val['id']; ?>" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit" class="btn btn-dark" onclick="return confirm('Apakah Anda Yakin ?')"><i class="mdi mdi-delete"></i></button>
+                                                    <button type="submit" class="btn btn-dark" onclick="sweetAlert()"><i class="mdi mdi-delete"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

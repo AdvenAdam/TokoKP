@@ -272,4 +272,27 @@ class Ram extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');
         return redirect()->to('/ram');
     }
+    public function tambah()
+    {
+        $data = [
+            'title' => 'Tambah Stock Barang',
+            'ram' => $this->ramModel->getram(),
+            'total' => count($this->ramModel->getram())
+        ];
+        return view('ram/tambah', $data);
+    }
+    public function addstok($id)
+    {
+        $stokLama = intval($this->request->getVar('stokLama'));
+        $stokTambah = intval($this->request->getVar('stok'));
+        $stokBaru =  $stokTambah + $stokLama;
+
+        $this->ramModel->save(
+            [
+                'id' => $id,
+                'stok' => $stokBaru,
+            ]
+        );
+        return redirect()->to('/ram/tambah');
+    }
 }

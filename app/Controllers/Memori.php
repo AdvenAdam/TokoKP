@@ -257,4 +257,28 @@ class Memori extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');
         return redirect()->to('/memori');
     }
+    // Tambah Stock Tiap Barang
+    public function tambah()
+    {
+        $data = [
+            'title' => 'Tambah Stock Barang',
+            'memori' => $this->memoriModel->getmemori(),
+            'total' => count($this->memoriModel->getmemori())
+        ];
+        return view('memori/tambah', $data);
+    }
+    public function addstok($id)
+    {
+        $stokLama = intval($this->request->getVar('stokLama'));
+        $stokTambah = intval($this->request->getVar('stok'));
+        $stokBaru =  $stokTambah + $stokLama;
+
+        $this->memoriModel->save(
+            [
+                'id' => $id,
+                'stok' => $stokBaru,
+            ]
+        );
+        return redirect()->to('/memori/tambah');
+    }
 }

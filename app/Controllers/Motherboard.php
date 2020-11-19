@@ -388,4 +388,27 @@ class Motherboard  extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');
         return redirect()->to('/motherboard');
     }
+    public function tambah()
+    {
+        $data = [
+            'title' => 'Tambah Stock Barang',
+            'motherboard' => $this->motherboardModel->getmotherboard(),
+            'total' => count($this->motherboardModel->getmotherboard())
+        ];
+        return view('motherboard/tambah', $data);
+    }
+    public function addstok($id)
+    {
+        $stokLama = intval($this->request->getVar('stokLama'));
+        $stokTambah = intval($this->request->getVar('stok'));
+        $stokBaru =  $stokTambah + $stokLama;
+
+        $this->motherboardModel->save(
+            [
+                'id' => $id,
+                'stok' => $stokBaru,
+            ]
+        );
+        return redirect()->to('/motherboard/tambah');
+    }
 }

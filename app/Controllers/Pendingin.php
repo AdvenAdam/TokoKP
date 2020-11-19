@@ -244,4 +244,27 @@ class Pendingin  extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');
         return redirect()->to('/pendingin');
     }
+    public function tambah()
+    {
+        $data = [
+            'title' => 'Tambah Stock Barang',
+            'pendingin' => $this->pendinginModel->getpendingin(),
+            'total' => count($this->pendinginModel->getpendingin())
+        ];
+        return view('pendingin/tambah', $data);
+    }
+    public function addstok($id)
+    {
+        $stokLama = intval($this->request->getVar('stokLama'));
+        $stokTambah = intval($this->request->getVar('stok'));
+        $stokBaru =  $stokTambah + $stokLama;
+
+        $this->pendinginModel->save(
+            [
+                'id' => $id,
+                'stok' => $stokBaru,
+            ]
+        );
+        return redirect()->to('/pendingin/tambah');
+    }
 }

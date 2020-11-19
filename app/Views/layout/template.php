@@ -23,6 +23,10 @@
     <link rel="stylesheet" href="/zz/src/assets/datatables-responsive/css/responsive.bootstrap4.min.css">
     <!-- css utk Gambar -->
     <link rel="stylesheet" href="/zz/src/assets/css/gambar.css">
+    <!-- sweet alert -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 </head>
 
 <body class="header-fixed">
@@ -71,6 +75,9 @@
     <script src="/zz/src/assets/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="/zz/src/assets/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <script src="/zz/src/assets/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <!-- sweet alert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+
     <!-- page script -->
     <script>
         // data table
@@ -91,6 +98,7 @@
 
         });
     </script>
+    <!-- IMG PREVIEW -->
     <script>
         function previewImg() {
 
@@ -109,6 +117,11 @@
             }
         }
     </script>
+    <?php
+
+    ?>
+
+
 </body>
 
 </html>

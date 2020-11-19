@@ -23,6 +23,7 @@
     + Tables
     + Timeline
     + Tooltip
+    + Slider
   * Template
   * Utilities
   * Demo
@@ -1516,12 +1517,11 @@ pre code {
   padding: 10px 15px;
 }
 .table-container {
-	overflow: auto;
+  overflow: auto;
 }
 
 .table-bordered {
   border: 1px solid #f2f4f9;
-
 }
 .table-bordered th,
 .table-bordered td {
@@ -2372,6 +2372,42 @@ textarea.form-control.is-invalid {
   .form-inline .custom-control-label {
     margin-bottom: 0;
   }
+}
+.slidecontainer {
+  width: 100%;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
 }
 
 .btn {
@@ -13067,35 +13103,6 @@ table.info-table tr th.actions {
   min-height: 100vh;
   display: flex;
   align-items: center;
-}
-
-.sidebar-upgrade-banner {
-  margin: 0px 20px;
-  border-radius: 4px;
-  padding: 145px 20px 30px 20px;
-  background: url("../../images/pro_features_bg.svg") no-repeat;
-  background-color: #fbfcfd;
-  background-size: 50%;
-  text-align: center;
-  background-position: center 20%;
-}
-.sidebar-upgrade-banner .upgrade-btn {
-  background: linear-gradient(135deg, #6b73ff 10%, #000dff 100%);
-  color: #fff;
-  margin-top: 30px;
-  border: none;
-}
-
-.purchase-banner-active.header-fixed .t-header {
-  top: 55px;
-}
-
-.purchase-banner-active.docs-body {
-  padding-top: 55px;
-}
-
-.purchase-banner-active .page-body {
-  top: 55px;
 }
 
 /* === Pages === */

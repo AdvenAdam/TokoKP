@@ -248,4 +248,29 @@ class Casing  extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');
         return redirect()->to('/casing');
     }
+
+    // Tambah Stock Tiap Barang
+    public function tambah()
+    {
+        $data = [
+            'title' => 'Tambah Stock Barang',
+            'casing' => $this->casingModel->getcasing(),
+            'total' => count($this->casingModel->getcasing())
+        ];
+        return view('casing/tambah', $data);
+    }
+    public function addstok($id)
+    {
+        $stokLama = intval($this->request->getVar('stokLama'));
+        $stokTambah = intval($this->request->getVar('stok'));
+        $stokBaru =  $stokTambah + $stokLama;
+
+        $this->casingModel->save(
+            [
+                'id' => $id,
+                'stok' => $stokBaru,
+            ]
+        );
+        return redirect()->to('/casing/tambah');
+    }
 }

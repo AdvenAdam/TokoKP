@@ -13,7 +13,7 @@
         <ul class="navigation-menu">
             <li class="nav-category-divider">MAIN</li>
             <li>
-                <a href="/">
+                <a href="/home">
                     <span class="link-title">Dashboard</span>
                     <i class="mdi mdi-gauge link-icon"></i>
                 </a>
@@ -46,28 +46,64 @@
                         <a href="/psu">Power Supply</a>
                     </li>
                     <li>
-                        <a href="/casing">Cassing</a>
-                    </li>
-                    <li>
                         <a href="/pendingin">Cooler</a>
                     </li>
                 </ul>
             </li>
 
             <li>
-                <a href="pages/forms/form-elements.html">
-                    <span class="link-title">Link</span>
+                <a href="#stok" data-toggle="collapse" aria-extended="false">
+                    <span class="link-title">Re Stock Barang</span>
                     <i class="mdi mdi-clipboard-outline link-icon"></i>
                 </a>
+                <ul class="collapse navigation-submenu" id="stok">
+                    <li>
+                        <a href="/motherboard/tambah">Motherboard</a>
+                    </li>
+                    <li>
+                        <a href="/casing/tambah">Cassing</a>
+                    </li>
+                    <li>
+                        <a href="/procesor/tambah">Processor</a>
+                    </li>
+                    <li>
+                        <a href="/ram/tambah">Ram</a>
+                    </li>
+                    <li>
+                        <a href="/vga/tambah">VGA</a>
+                    </li>
+                    <li>
+                        <a href="/memori/tambah">Memory</a>
+                    </li>
+                    <li>
+                        <a href="/psu/tambah">Power Supply</a>
+                    </li>
+                    <li>
+                        <a href="/pendingin/tambah">Cooler</a>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-category-divider">Akun</li>
             <li>
-                <a href="/zz/src/docs/docs.html">
-                    <span class="link-title">Documentation</span>
-                    <i class="mdi mdi-asterisk link-icon"></i>
+                <a href="/pegawai">
+                    <span class="link-title">Pegawai</span>
+                    <i class="mdi mdi-account-multiple link-icon"></i>
                 </a>
             </li>
+            <li>
+                <a href="/Auth">
+                    <span class="link-title">Login</span>
+                    <i class="mdi mdi-login link-icon"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/user">
+                    <span class="link-title">User</span>
+                    <i class="mdi mdi-account link-icon"></i>
+                </a>
+            </li>
+
         </ul>
 
     </div>
